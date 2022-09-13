@@ -11,7 +11,7 @@ servers:
   - url: 'https://api.algopix.com'
     description: Algopix API
 tags:
-  - name: Buy Box Owners endpoints
+  - name: Async endpoints
 paths:
   /v3/async/sellers/buyboxowners:
     get:
@@ -21,8 +21,8 @@ paths:
         <br/>[**Don't miss our schemas**](/docs/Making-a-request/Our-schemas.md)
       operationId: request-products-sellers
       tags:
-        - Buy Box Owners endpoints
-      summary: Request Buy Box Owners
+        - Async endpoints
+      summary: Buy Box Owners request
       parameters:
         - name: productId
           in: query
@@ -92,7 +92,7 @@ paths:
   /v3/async/sellers/buyboxowners/results:
     get:
       tags:
-        - Buy Box Owners endpoints
+        - Async endpoints
       summary: Buy Box Owners results
       description: |-
         This is an asynchronous API endpoint. This endpoint retrieves the results of the asynchronous search from the endpoint [Request Buy Box Owners](../~1v3~1async~1sellers~1buyboxowners/get).
@@ -101,7 +101,7 @@ paths:
       operationId: products-sellers-results
       responses:
         '200':
-          description: Successful operation.</br>**Notice - our examples were generate with mock data**
+          description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
           content:
             application/json:
               schema:

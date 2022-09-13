@@ -11,7 +11,7 @@ servers:
   - url: 'https://api.algopix.com'
     description: Algopix API
 tags:
-  - name: Products Listings endpoints
+  - name: Async endpoints
 paths:
   /v3/async/products/listings:
     get:
@@ -22,8 +22,8 @@ paths:
         <br/>[**Don't miss our schemas**](./ZG9jOjE4MzgyNTcx-our-schemas)
       operationId: request-products-listings
       tags:
-        - Products Listings endpoints
-      summary: Request Products Listings
+        - Async endpoints
+      summary: Products Listings request
       parameters:
         - name: productId
           in: query
@@ -97,7 +97,7 @@ paths:
   /v3/async/products/listings/results:
     get:
       tags:
-        - Products Listings endpoints
+        - Async endpoints
       summary: Products Listings results
       description: |-
         This is an asynchronous API endpoint. This endpoint retrieves the results of the asynchronous search from the endpoint [Request Products Listings](./b3A6MjI1NjIxMzA-request-products-listings).
@@ -106,7 +106,7 @@ paths:
       operationId: products-listings-results
       responses:
         '200':
-          description: Successful operation.</br>**Notice - our examples were generate with mock data**
+          description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
           content:
             application/json:
               schema:

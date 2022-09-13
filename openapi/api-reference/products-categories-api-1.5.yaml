@@ -12,7 +12,7 @@ servers:
     description: Algopix API
 
 tags:
-  - name: Products categories endpoints
+  - name: Async endpoints
     description: This API allows users to search for products within specified categories.
 paths:
   /v3/async/categories/products:
@@ -22,8 +22,8 @@ paths:
         <br/>Please notice our [“How to Handle an asynchronous Response”](/docs/Making-a-request/How-to-use-the-async-API.md) article.
         <br/>[**Don't miss our schemas**](/docs/Making-a-request/Our-schemas.md)
       tags:
-        - Products categories endpoints
-      summary: Request Products categories
+        - Async endpoints
+      summary: Products categories request
       operationId: request-products-category
       parameters:
         - name: browseNodeId
@@ -109,12 +109,12 @@ paths:
         <br/>Please notice our [“How to Handle an asynchronous Response”](/docs/Making-a-request/How-to-use-the-async-API.md) article.
         <br/>[**Don't miss our schemas**](/docs/Making-a-request/Our-schemas.md)
       tags:
-        - Products categories endpoints
+        - Async endpoints
       summary: Products categories results
       operationId: products-category-results
       responses:
         '200':
-          description: Success.</br>**Notice - our examples were generate with mock data**
+          description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
           #          description: Success – category results returned. May contain multiple responses. Each product (result) is assigned with metadata and request id; representing the call that has been made in order to retrieve it while performing GET category/analysisAsync/.
           content:
             application/json:

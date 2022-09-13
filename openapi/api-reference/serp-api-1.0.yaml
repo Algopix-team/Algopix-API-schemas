@@ -9,13 +9,13 @@ info:
 servers:
   - url: 'https://api.algopix.com'
 tags:
-  - name: Search engine results endpoints
+  - name: Sync endpoints
 paths:
   /v4/serp:
     summary: SERP search results with ranking.
     get:
       tags:
-        - Search engine results endpoints
+        - Sync endpoints
       summary: Get Search engine results
       description: |-
         This is a synchronous API endpoint. This endpoint searches a product list with the SERP ranking for the specified market and search terms.
@@ -44,9 +44,7 @@ paths:
           explode: false
           required: true
           schema:
-            type: string
-            enum:
-              - AMAZON_US
+            $ref: ../models/serp/SerpMarketsRequest.v1.yaml
         - name: resources
           description: Resources is processing the results origin file in the specified format (html or image), which can be retrieved in the appropriate endpoint.
           in: query
@@ -71,7 +69,7 @@ paths:
           required: false
       responses:
         '200':
-          description: Success – search results returned.</br>**Notice - our examples were generate with mock data**
+          description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
           content:
             application/json:
               schema:
@@ -131,7 +129,7 @@ paths:
   '/v4/serp/{pageId}/html':
     get:
       tags:
-        - Search engine results endpoints
+        - Sync endpoints
       summary: Get search engine html
       description: |-
         This endpoint retrieves the page's raw html results. Notice - you had to specify this resource in the [Get Search engine results](../~1v4~1serp/get) endpoint in order to retrieve its html.
@@ -143,14 +141,6 @@ paths:
           schema:
             type: string
           required: true
-        - name: market
-          description: currently only AMAZON_US market is supported
-          in: query
-          style: form
-          explode: false
-          required: true
-          schema:
-            $ref: ../models/common/Markets.v1.yaml
       responses:
         '200':
           description: Success - Return Html file.
@@ -170,7 +160,7 @@ paths:
   '/v4/serp/{pageId}/image':
     get:
       tags:
-        - Search engine results endpoints
+        - Sync endpoints
       summary: Get search engine image
       description: |-
         This endpoint retrieves an image of the page's results.  Notice - you had to specify this resource in the [Get Search engine results](../~1v4~1serp/get) endpoint in order to retrieve its image.
@@ -182,14 +172,6 @@ paths:
           schema:
             type: string
           required: true
-        - name: market
-          description: currently only AMAZON_US market is supported
-          in: query
-          style: form
-          explode: false
-          required: true
-          schema:
-            $ref: ../models/common/Markets.v1.yaml
       responses:
         '200':
           description: Success - Return Image.

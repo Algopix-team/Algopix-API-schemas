@@ -11,18 +11,18 @@ servers:
   - url: 'https://api.algopix.com'
     description: Algopix API
 tags:
-  - name: Products promotions endpoints
+  - name: Async endpoints
 paths:
   /v3/async/promotions:
     get:
       tags:
-        - Products promotions endpoints
+        - Async endpoints
       description: |-
         This is an asynchronous API endpoint. This endpoint searches promotional data in specified Amazon listings by AID or ASIN. The results may be retrieved from [Products promotions results](../~1v3~1async~1promotions~1results/get).
         <br/>Please notice our [“How to Handle an asynchronous Response”](/docs/Making-a-request/How-to-use-the-async-API.md) article.
         <br/>[**Don't miss our schemas**](/docs/Making-a-request/Our-schemas.md)
       operationId: request-products-promotions
-      summary: Request products promotions
+      summary: Products promotions request
       parameters:
         - name: productId
           in: query
@@ -69,7 +69,7 @@ paths:
   /v3/async/promotions/results:
     get:
       tags:
-        - Products promotions endpoints
+        - Async endpoints
       summary: Products promotions results
       description: |-
         This is an asynchronous API endpoint. This endpoint retrieves the results of the search from the endpoint [Request products promotions](../~1v3~1async~1promotions/get).
@@ -78,7 +78,7 @@ paths:
       operationId: products-promotions-results
       responses:
         '200':
-          description: Success.</br>**Notice - our examples were generate with mock data**
+          description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
           content:
             application/json:
               schema:

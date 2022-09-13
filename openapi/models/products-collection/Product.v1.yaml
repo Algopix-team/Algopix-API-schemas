@@ -7,6 +7,9 @@ properties:
   parentAid:
     description: Algopix identifier's parent.
     type: string
+  asin:
+    description: Amazon Identifier.
+    type: string
   title:
     description: The title of the product.
     type: string

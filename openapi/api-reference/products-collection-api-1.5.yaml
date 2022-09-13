@@ -9,12 +9,13 @@ info:
 servers:
   - url: 'https://api.algopix.com'
 tags:
-  - name: Products collection endpoints
+  - name: Sync endpoints
+  - name: Report
 paths:
   /v4/products:
     get:
       tags:
-        - Products collection endpoints
+        - Sync endpoints
       operationId: get-products-collection
       summary: Get products collection
       description: |-
@@ -23,7 +24,7 @@ paths:
       parameters:
         - name: local
           required: false
-          description: the local of the product.
+          description: The local of the product.
           in: query
           schema:
             $ref: ../models/common/Locals.v1.yaml
@@ -60,6 +61,12 @@ paths:
           explode: false
           schema:
             type: string
+        - name: AdditionalFields
+          in: query
+          description: Using that resource, the response will include the product identifiers.
+          required: false
+          schema:
+            $ref: ../models/products-collection/AdditionalFields.v1.yaml
         - name: excludeCategories
           in: query
           description: Comma-delimited list of category ids to exclude.
@@ -93,14 +100,14 @@ paths:
             type: integer
           required: false
         - name: resources
-          description: comma delimited resource list to include in the response.
+          description: Comma delimited resource list to include in the response.
           in: query
           explode: false
           schema:
             $ref: ../models/products-collection/ResourceType.v1.yaml
       responses:
         '200':
-          description: SUCCESS.</br>**Notice - our examples were generate with mock data**
+          description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
           content:
             application/json:
               schema:
@@ -150,7 +157,7 @@ paths:
   /v4/products/summary:
     get:
       tags:
-        - Products collection endpoints
+        - Sync endpoints
       operationId: get-products-collection-summary
       summary: Get products collection summary
       description: |-
@@ -200,7 +207,7 @@ paths:
               type: string
       responses:
         '200':
-          description: SUCCESS.</br>**Notice - our examples were generate with mock data**
+          description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
           content:
             application/json:
               schema:
@@ -218,14 +225,14 @@ paths:
                       brands:
                         - title: nike
                           id: 11nohTBQB_
-                          precentage: 97.6
+                          percentage: 97.6
                       categories:
                         - id: '7148223411'
-                          precentage: 100
+                          percentage: 100
                       manufacturers:
                         - title: nike
                           id: 11nohTBQB_
-                          precentage: 83.3
+                          percentage: 83.3
         '400':
           $ref: '../models/common/responses/statuscode400.v1.yaml'
         '401':
@@ -236,13 +243,14 @@ paths:
           $ref: '../models/common/responses/statuscode429.v1.yaml'
         '500':
           $ref: '../models/common/responses/statuscode500.v1.yaml'
+      x-internal: true
       security:
         - apiKey: []
         - appId: []
   /v4/products/reports:
     post:
       tags:
-        - Products collection endpoints
+        - Report
       operationId: create-products-collection-report
       summary: Create a products report
       description: |-
@@ -266,7 +274,15 @@ paths:
             type: string
         - name: brandName
           in: query
-          description: brand name
+          description: 'The name of the brand'
+          required: false
+          style: form
+          explode: false
+          schema:
+            type: string
+        - name: manufacturerName
+          in: query
+          description: 'The name of the manufacturer'
           required: false
           style: form
           explode: false
@@ -280,6 +296,18 @@ paths:
           explode: false
           schema:
             type: string
+        - name: resources
+          description: comma delimited resource list to include in the response.
+          in: query
+          explode: false
+          schema:
+            $ref: ../models/products-collection/ResourceType.v1.yaml
+        - name: AdditionalFields
+          in: query
+          description: Using that resource, the response will include the product identifiers.
+          required: false
+          schema:
+            $ref: ../models/products-collection/AdditionalFields.v1.yaml
         - name: excludeCategories
           in: query
           description: List of comma delimited [amazon category ids](https://algopix.com/taxonomy/amazon_browse_node_info_US.txt) by locale to exclude.
@@ -305,7 +333,7 @@ paths:
             $ref: ../models/products-collection/AdditionalFields.v1.yaml
       responses:
         '200':
-          description: Ok.</br>**Notice - our examples were generate with mock data**
+          description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
           content:
             application/json:
               schema:
@@ -336,8 +364,8 @@ paths:
   /v4/products/reports/status:
     get:
       tags:
-        - Products collection endpoints
-      operationId: get-products-report-status
+        - Report
+      operationId: get-products-collection-report-status
       summary: Get report status
       description: Get all report status.<br>[**Don't miss our schemas**](/docs/Making-a-request/Our-schemas.md)
       parameters:
@@ -350,7 +378,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Ok.</br>**Notice - our examples were generate with mock data**
+          description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
           content:
             application/json:
               schema:
@@ -384,7 +412,7 @@ paths:
   '/v4/products/reports/{reportId}':
     get:
       tags:
-        - Products collection endpoints
+        - Report
       summary: Get ready report
       description: This endpoint returns collection report file.<br>[**Don't miss our schemas**](/docs/Making-a-request/Our-schemas.md)
       operationId: get-products-collection-report

@@ -11,7 +11,7 @@ servers:
   - url: 'https://api.algopix.com'
     description: Algopix API
 tags:
-  - name: Brands endpoints
+  - name: Sync endpoints
 paths:
   /v4/brands:
     get:
@@ -19,7 +19,7 @@ paths:
         This is a synchronous API endpoint. This endpoint retrieves brand names, ids and sub brands for the specified brand name.
         <br/>[**Don't miss our schemas**](/docs/Making-a-request/Our-schemas.md)
       tags:
-        - Brands endpoints
+        - Sync endpoints
       summary: Get Brands by brand name
       operationId: get-brands-by-name
       parameters:
@@ -32,7 +32,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Success - request submitted.</br>**Notice - our examples were generate with mock data**
+          description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
           content:
             application/json:
               schema:
@@ -71,7 +71,7 @@ paths:
         This is a synchronous API endpoint. This endpoint retrieves Algopix name, and sub brands for the specified brandId.
         <br/>[**Don't miss our schemas**](/docs/Making-a-request/Our-schemas.md)
       tags:
-        - Brands endpoints
+        - Sync endpoints
       summary: Get Brand by brand id
       operationId: get-brand-by-id
       parameters:
@@ -84,7 +84,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Success - request submitted.</br>**Notice - our examples were generate with mock data**
+          description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
           content:
             application/json:
               schema:

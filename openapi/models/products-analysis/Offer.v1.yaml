@@ -1,6 +1,9 @@
 title: Offer
 type: object
 properties:
+  itemConditionAdditionalData:
+    description: eBay condition type
+    $ref: ./EbayConditionItemDetails.v1.yaml
   marketPrice:
     description: Lowest offering from a reputable seller.
     $ref: '../common/Price.v1.yaml'
