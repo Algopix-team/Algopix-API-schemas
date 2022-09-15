@@ -2,7 +2,7 @@ title: SerpRequest
 type: object
 properties:
   market:
-    $ref: ../common/Markets.v1.yaml
+    $ref: ./SerpMarketsRequest.v1.yaml
   query:
     type: string
     description: A query string to search across products.
