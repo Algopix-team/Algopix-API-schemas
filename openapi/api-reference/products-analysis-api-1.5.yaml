@@ -111,6 +111,8 @@ paths:
               - USD
               - EUR
               - CAD
+              - AUD
+              - MXN
       responses:
         '200':
           description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
@@ -393,6 +395,8 @@ paths:
               - USD
               - EUR
               - CAD
+              - AUD
+              - MXN
       responses:
         '200':
           $ref: '../models/common/responses/statuscode200.v1.yaml'
