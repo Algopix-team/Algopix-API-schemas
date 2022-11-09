@@ -320,6 +320,10 @@ paths:
                         statusMessage: Ok
                         statusCode: 200
                         requestId: 49735463-e4b6-4960-bd83-7c90043bd14b
+                        requestDetails:
+                          requestTimestamp: 1610532837069
+                          params:
+                            keywords: Casio Watch
                         result:
                           matchingProducts:
                             - title: Casio Men's Vintage A168WA-1 Electro Luminescence Watch

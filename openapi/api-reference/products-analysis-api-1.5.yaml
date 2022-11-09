@@ -441,12 +441,16 @@ paths:
                     asyncApiStatus:
                       resultsReadyCount: 3
                       pendingRequestCount: 0
-                    result:
+                    responseList:
                       - timestamp: 1628508641
                         status: SUCCESS
                         statusMessage: Ok
                         statusCode: 200
                         requestId: 60ff66fe-76b2-4a70-882a-3168947038ca
+                        requestDetails:
+                          requestTimestamp: 1628508640769
+                          params:
+                            keywords: Harry Potter and the Sorcerer's Stone
                         result:
                           itemDetails:
                             aid: AIDLGDA02005
