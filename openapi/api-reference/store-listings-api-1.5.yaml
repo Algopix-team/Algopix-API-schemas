@@ -26,17 +26,13 @@ paths:
 
         ## API Overview
 
-        **Store Listings** is a synchronous API endpoint that gets the sellers’ store listings. This API also allows users to retrieve seller storefront listings including the product listing variants, if they are being offered by the seller requested.
-
-        If the store listings have not been called from the Algopix database, the results will show no listings exist until a background process extracts the seller’s store data, and prepares the data for the API. This guarantees the most updated seller store data.
+        **Store Listings** is a synchronous API endpoint that gets the seller’s store listings. This API also allows users to retrieve seller storefront listings including the product listing variants, if they are being offered by the seller requested.
 
         > ### Note:
         >
-        > **The background process can take up to 24 hours to run, so you will need to make the call again to see results.**
+        > **If store listings have not been retrieved from the database, the API will not display any listings until a background process retrieves and processes the seller’s store data. This ensures that the most up-to-date information is displayed. However, this process can take some time, so you will need to make the API call again to see the updated results.**
 
-        The maximum amount of Amazon storefront listings that can be retrieved is limited to 2,400 items. However, with the addition of variations and the listings that do not appear in the seller storefront, the number of listings associated with the seller can reach up to 0.5M products.
-
-        The associated API schemas can be found [here](https://github.com/Algopix-team/Algopix-API-schemas/blob/master/openapi/api-reference/store-listings-api-1.5.yaml).
+        The associated API schemas can be found [here](https://github.com/Algopix-team/Cluster-API-schemas/blob/master/openapi/api-reference/store-listings-api-1.5.yaml).
       operationId: get-store-listings
       parameters:
         - name: sellerId
@@ -62,7 +58,7 @@ paths:
           schema:
             type: integer
         - name: resources
-          description: 'Comma-delimited resource list to be included in the response.</br>Currently available only for the US market.</br>If PRODUCT_DETAILS is being requested, additional attributes will be retrieved: Brand, Title, Image URL, Leaf Categories, and Root Categories. If this parameter hasn’t been sent, the data that will be retrieved for each listing is the ASIN, price, and last updated date. The last updated date refers to the update of the listing offer state in the Algopix database.'
+          description: 'Comma-delimited resource list to be included in the response.</br>If PRODUCT_DETAILS is being requested, additional attributes will be retrieved: Brand, Title, Image URL, Leaf Categories, and Root Categories. If this parameter hasn’t been sent, the data that will be retrieved for each listing is the ASIN, price, and last updated date. The last updated date refers to the update of the listing offer state in the Algopix database.'
           in: query
           explode: false
           schema:
@@ -84,6 +80,17 @@ paths:
           style: form
           schema:
             type: boolean
+        - name: X-API-KEY
+          schema:
+            type: string
+          in: header
+          required: true
+          description: 'Read our [Authentication](./ZG9jOjE3ODE1Mjg1-authentication) article'
+        - name: X-APP-ID
+          schema:
+            type: string
+          in: header
+          required: true
       responses:
         '200':
           description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
@@ -101,16 +108,16 @@ paths:
           $ref: '../models/common/responses/statuscode429.v1.yaml'
         '500':
           $ref: '../models/common/responses/statuscode500.v1.yaml'
-      security:
-        - apiKey: []
-        - appId: []
+#      security:
+#        - apiKey: []
+#        - appId: []
 components:
   securitySchemes:
     apiKey:
       type: apiKey
       name: X-API-KEY
       in: header
-      description: Read our [Authentication](/docs/Making-a-request/Authentication.md) article
+      description: Read our [Authentication](./ZG9jOjE3ODE1Mjg1-authentication) article
     appId:
       type: apiKey
       name: X-APP-ID
