@@ -110,6 +110,17 @@ paths:
               - EUR
               - CAD
             default: USD
+        - name: X-API-KEY
+          schema:
+            type: string
+          in: header
+          required: true
+          description: 'Read our [Authentication](./ZG9jOjE3ODE1Mjg1-authentication) article'
+        - name: X-APP-ID
+          schema:
+            type: string
+          in: header
+          required: true
       responses:
         '200':
           description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
@@ -128,6 +139,13 @@ paths:
                     result:
                       matchingProducts:
                         - title: Casio Men's Vintage A168WA-1 Electro Luminescence Watch
+                          identifiers:
+                            ASIN:
+                              - "05457908495"
+                            UPC:
+                              - "7805457904687"
+                            EAN:
+                              - "7805457904689"
                           aid: AIDSNOFJ1000
                           matchingScores:
                             titleMatchingScore: 0.043
@@ -137,13 +155,22 @@ paths:
                             modelMatchingScore: 0.0
                             algopixTotalScore: 0.039
                           image:
-                            imageType: small
-                            imageUrl: https://m.media-amazon.com/images/I/418AS4GdpcS._SL75_.jpg
+                            imageType: MAIN
+                            imageUrl: https://m.media-amazon.com/images/I/21EaQK+HRUS._SL75_.jpg
                             imageHeight:
-                              value: 75.00
+                              value: 24.00
                               unit: PIXELS
                             imageWidth:
-                              value: 40.00
+                              value: 75.00
+                              unit: PIXELS
+                          largestImage:
+                            imageType: MAIN
+                            imageUrl: https://m.media-amazon.com/images/I/71pii4nJGML.jpg
+                            imageHeight:
+                              value: 2560.00
+                              unit: PIXELS
+                            imageWidth:
+                              value: 1296.00
                               unit: PIXELS
                           price:
                             currencyCode: USD
@@ -169,15 +196,15 @@ paths:
           $ref: '../models/common/responses/statuscode429.v1.yaml'
         '500':
           $ref: '../models/common/responses/statuscode500.v1.yaml'
-      security:
-        - apiKey: [ ]
-          appId: [ ]
+#      security:
+#        - apiKey: [ ]
+#          appId: [ ]
   /v3/async/products/matches:
     get:
       description: |-
-        This is an asynchronous API endpoint. This endpoint searches retail products data, specified by keywords and other attributes. The results may be retrieved from [Products matching results](../~1v3~1async~1products~1matches~1results/get).
-        <br/>Please notice our [“How to Handle an asynchronous Response”](/docs/Making-a-request/How-to-use-the-async-API.md) article.
-        <br/>[**Don't miss our schemas**](/docs/Making-a-request/Our-schemas.md)
+        This is an asynchronous API endpoint. This endpoint searches retail products data, specified by keywords and other attributes. The results may be retrieved from [Products matching results](./b3A6MTgwOTAzMDY-products-matching-results).
+        <br/><br/>Please notice our [“How to Handle an asynchronous Response”](./ZG9jOjE3ODE1Mjg3-how-to-use-the-async-api) article.
+        <br/><br/>[**Don't miss our schemas**](./ZG9jOjE4MzgyNTcx-our-schemas)
       operationId: request-products-matching
       summary: Products matching request
       tags:
@@ -270,6 +297,17 @@ paths:
               - EUR
               - CAD
             default: USD
+        - name: X-API-KEY
+          schema:
+            type: string
+          in: header
+          required: true
+          description: 'Read our [Authentication](./ZG9jOjE3ODE1Mjg1-authentication) article'
+        - name: X-APP-ID
+          schema:
+            type: string
+          in: header
+          required: true
       responses:
         '200':
           $ref: '../models/common/responses/statuscode200.v1.yaml'
@@ -283,19 +321,31 @@ paths:
           $ref: '../models/common/responses/statuscode429.v1.yaml'
         '500':
           $ref: '../models/common/responses/statuscode500.v1.yaml'
-      security:
-        - apiKey: []
-          appId: []
+#      security:
+#        - apiKey: []
+#          appId: []
   /v3/async/products/matches/results:
     get:
       operationId: products-matching-results
       description: |-
-        This is an asynchronous API endpoint. This endpoint retrieves the results of the search from the endpoint [Request products matching](../~1v3~1async~1products~1matches/get).
-        <br/>Please notice our [“How to Handle an asynchronous Response”](/docs/Making-a-request/How-to-use-the-async-API.md) article.
-        <br/>[**Don't miss our schemas**](/docs/Making-a-request/Our-schemas.md)
+        This is an asynchronous API endpoint. This endpoint retrieves the results of the search from the endpoint [Request products matching](./b3A6MTgwOTAzMDU-request-products-matching).
+        <br/><br/>Please notice our [“How to Handle an asynchronous Response”](./ZG9jOjE3ODE1Mjg3-how-to-use-the-async-api) article.
+        <br/><br/>[**Don't miss our schemas**](./ZG9jOjE4MzgyNTcx-our-schemas)
       tags:
         - Async endpoints
       summary: Products matching results
+      parameters:
+        - name: X-API-KEY
+          schema:
+            type: string
+          in: header
+          required: true
+          description: 'Read our [Authentication](./ZG9jOjE3ODE1Mjg1-authentication) article'
+        - name: X-APP-ID
+          schema:
+            type: string
+          in: header
+          required: true
       responses:
         '200':
           description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
@@ -327,6 +377,13 @@ paths:
                         result:
                           matchingProducts:
                             - title: Casio Men's Vintage A168WA-1 Electro Luminescence Watch
+                              identifiers:
+                                ASIN:
+                                  - "05457908495"
+                                UPC:
+                                  - "7805457904687"
+                                EAN:
+                                  - "7805457904689"
                               aid: AIDSNOFJ1000
                               matchingScores:
                                 titleMatchingScore: 0.043
@@ -336,13 +393,22 @@ paths:
                                 modelMatchingScore: 0.0
                                 algopixTotalScore: 0.039
                               image:
-                                imageType: small
-                                imageUrl: https://m.media-amazon.com/images/I/418AS4GdpcS._SL75_.jpg
+                                imageType: MAIN
+                                imageUrl: https://m.media-amazon.com/images/I/21EaQK+HRUS._SL75_.jpg
                                 imageHeight:
-                                  value: 75.00
+                                  value: 24.00
                                   unit: PIXELS
                                 imageWidth:
-                                  value: 40.00
+                                  value: 75.00
+                                  unit: PIXELS
+                              largestImage:
+                                imageType: MAIN
+                                imageUrl: https://m.media-amazon.com/images/I/71pii4nJGML.jpg
+                                imageHeight:
+                                  value: 2560.00
+                                  unit: PIXELS
+                                imageWidth:
+                                  value: 1296.00
                                   unit: PIXELS
                               price:
                                 currencyCode: USD
@@ -368,16 +434,16 @@ paths:
           $ref: '../models/common/responses/statuscode429.v1.yaml'
         '500':
           $ref: '../models/common/responses/statuscode500.v1.yaml'
-      security:
-        - apiKey: []
-          appId: []
+#      security:
+#        - apiKey: []
+#          appId: []
 components:
   securitySchemes:
     apiKey:
       type: apiKey
       name: X-API-KEY
       in: header
-      description: Read our [Authentication](/docs/Making-a-request/Authentication.md) article
+      description: Read our [Authentication](./ZG9jOjE3ODE1Mjg1-authentication) article
     appId:
       type: apiKey
       name: X-APP-ID
