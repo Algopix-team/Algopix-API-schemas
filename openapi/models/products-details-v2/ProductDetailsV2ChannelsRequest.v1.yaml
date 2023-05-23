@@ -3,7 +3,9 @@ description: The market to retrieve results for.
 type: string
 enum:
   - AMAZON_US
+  - AMAZON_UK
   - AMAZON_CA
+  - AMAZON_AU
   - AMAZON_MX
   - AMAZON_DE
   - AMAZON_SE
@@ -12,9 +14,7 @@ enum:
   - AMAZON_NL
   - AMAZON_PL
   - AMAZON_ES
-  - AMAZON_UK
   - AMAZON_BE
-  - AMAZON_AU
   - AMAZON_TR
   - AMAZON_BR
   - AMAZON_IN

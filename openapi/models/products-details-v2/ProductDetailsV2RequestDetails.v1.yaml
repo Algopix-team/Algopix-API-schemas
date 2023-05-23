@@ -11,7 +11,9 @@ properties:
       productId:
         type: string
       productIdType:
-        $ref: ./ProductDetailsV2ProductIdType.v1.yaml
+        $ref: './ProductDetailsV2IdentifiersType.v1.yaml'
       channel:
-        $ref: ./ProductDetailsV2ChannelsRequest.v1.yaml
+        $ref: './ProductDetailsV2ChannelsRequest.v1.yaml'
+      language:
+        $ref: './ProductDetailsV2LanguagesRequest.v1.yaml'
 

@@ -19,14 +19,6 @@ properties:
     type: string
   itemClassification:
     type: string
-  browseClassification:
-    title: AmazonChannelSpecificAttributesBrowseClassification
-    type: object
-    properties:
-      displayName:
-        type: string
-      classificationId :
-        type: string
   releaseDate:
     type: string
   tradeInEligible:

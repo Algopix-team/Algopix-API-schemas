@@ -4,4 +4,4 @@ properties:
     requestDetails:
       $ref: ./ProductDetailsV2RequestDetails.v1.yaml
     result:
-      $ref: ./ProductDetailsV2ItemDetails.v1.yaml
+       $ref: ./ProductDetailsV2ItemDetails.v1.yaml

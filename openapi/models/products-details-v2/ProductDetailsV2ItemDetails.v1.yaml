@@ -9,31 +9,33 @@ allOf:
         description: algopix item identifier
       channel:
         $ref: ./ProductDetailsV2ChannelsRequest.v1.yaml
+      language:
+        $ref: ./ProductDetailsV2LanguagesRequest.v1.yaml
       primaryChannelIdType:
         $ref: ./ProductDetailsV2ItemIdType.v1.yaml
       primaryChannelId:
         type: string
+      commonAttributes:
+        $ref: ./ProductDetailsV2CommonAttributes.v1.yaml
+      identifiers:
+        type: array
+        items:
+          $ref: ./ProductDetailsV2Identifiers.v1.yaml
+      relationships:
+        type: array
+        items:
+          $ref: ./ProductDetailsV2Relation.v1.yaml
       categories:
         type: array
         items:
           $ref: ./ProductDetailsV2Category.v1.yaml
       dimensions:
         $ref: ./ProductDetailsV2Dimensions.v1.yaml
-      identifiers:
-        type: array
-        items:
-          $ref: ./ProductDetailsV2Identifiers.v1.yaml
       images:
         type: array
         items:
           $ref: ./ProductDetailsV2Image.v1.yaml
-      relationships:
-        type: array
-        items:
-          $ref: ./ProductDetailsV2Relation.v1.yaml
       channelSpecificAttributes:
           $ref: ./ProductDetailsV2ChannelSpecificAttributes.v1.yaml
-      commonAttributes:
-        $ref: ./ProductDetailsV2CommonAttributes.v1.yaml
       additionalAttributes:
         type: object

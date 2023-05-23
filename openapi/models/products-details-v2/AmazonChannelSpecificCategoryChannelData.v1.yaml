@@ -8,9 +8,9 @@ properties:
     type: string
     enum:
       - 'AmazonChannelData'
-  link:
-    type: string
-  rank:
-    $ref: ./ProductDetailsV2CategoryChannelDataRank.v1.yaml
+#  link:
+#    type: string
+#  rank:
+#    $ref: ./ProductDetailsV2CategoryChannelDataRank.v1.yaml
   isWebSiteDisplayGroup:
     type: boolean
