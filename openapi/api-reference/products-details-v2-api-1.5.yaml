@@ -58,17 +58,23 @@ paths:
           explode: true
           schema:
             $ref: ../models/products-details-v2/ProductDetailsV2LanguagesRequest.v1.yaml
-#        - name: X-API-KEY
-#          schema:
-#            type: string
-#          in: header
-#          required: true
-#          description: 'Read our [Authentication](./ZG9jOjE3ODE1Mjg1-authentication) article'
-#        - name: X-APP-ID
-#          schema:
-#            type: string
-#          in: header
-#          required: true
+        - name: resources
+          description: 'Cluster images.'
+          in: query
+          explode: false
+          schema:
+            $ref: ../models/products-details-v2/ProductDetailsV2ResourceType.v1.yaml
+        - name: X-API-KEY
+          schema:
+           type: string
+          in: header
+          required: true
+          description: 'Read our [Authentication](./ZG9jOjE3ODE1Mjg1-authentication) article'
+        - name: X-APP-ID
+          schema:
+           type: string
+          in: header
+          required: true
       responses:
         '200':
           description: 'SUCCESS.</br>**Note: Examples were generated with mock data.**'
@@ -407,9 +413,9 @@ paths:
           $ref: '../models/common/responses/statuscode429.v1.yaml'
         '500':
           $ref: '../models/common/responses/statuscode500.v1.yaml'
-      security:
-          - apiKey: [ ]
-            appId: [ ]
+#      security:
+#        - apiKey: [ ]
+#          appId: [ ]
 components:
   securitySchemes:
     apiKey:
